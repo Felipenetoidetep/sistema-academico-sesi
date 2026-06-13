@@ -8,7 +8,7 @@ function Notas() {
     useEffect(() => {
 
         axios
-            .get("http://localhost:3001/api/notas")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/notas")
             .then((response) => {
 
                 setNotas(response.data);

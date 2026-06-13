@@ -20,7 +20,7 @@ function BoletimAluno() {
 
             const response =
                 await axios.get(
-                    `http://localhost:3001/api/notas/boletim/${alunoId}`
+                    `https://sistema-academico-sesi-production.up.railway.app/api/notas/boletim/${alunoId}`
                 );
 
             setBoletim(

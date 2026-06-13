@@ -12,7 +12,7 @@ function CadastrarAluno() {
     useEffect(() => {
 
         axios
-            .get("http://localhost:3001/api/turmas")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/turmas")
             .then((response) => {
 
                 setTurmas(response.data);
@@ -35,7 +35,7 @@ function CadastrarAluno() {
         try {
 
             await axios.post(
-                "http://localhost:3001/api/alunos",
+                "https://sistema-academico-sesi-production.up.railway.app/api/alunos",
                 {
                     matricula,
                     nome,

@@ -16,7 +16,7 @@ function Boletim() {
 
         const alunoResponse =
     await axios.get(
-        `http://localhost:3001/api/alunos/busca/${busca}`
+        `https://sistema-academico-sesi-production.up.railway.app/api/alunos/busca/${busca}`
     );
 
         const alunoId =
@@ -24,7 +24,7 @@ function Boletim() {
 
         const boletimResponse =
             await axios.get(
-                `http://localhost:3001/api/notas/boletim/${alunoId}`
+                `https://sistema-academico-sesi-production.up.railway.app/api/notas/boletim/${alunoId}`
             );
 
         setDados(

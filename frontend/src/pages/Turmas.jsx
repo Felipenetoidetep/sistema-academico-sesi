@@ -22,7 +22,7 @@ function Turmas() {
     const carregarTurmas = () => {
 
         axios
-            .get("http://localhost:3001/api/turmas")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/turmas")
             .then((response) => {
 
                 setTurmas(response.data);
@@ -40,7 +40,7 @@ const salvarTurma = async () => {
     try {
 
         await axios.post(
-            "http://localhost:3001/api/turmas",
+            "https://sistema-academico-sesi-production.up.railway.app/api/turmas",
             novaTurma
         );
 
@@ -79,7 +79,7 @@ const excluirTurma = async (id) => {
     try {
 
         await axios.delete(
-            `http://localhost:3001/api/turmas/${id}`
+            `https://sistema-academico-sesi-production.up.railway.app/api/turmas/${id}`
         );
 
         alert("Turma excluída com sucesso!");
@@ -115,7 +115,7 @@ const atualizarTurma = async () => {
     try {
 
         await axios.put(
-            `http://localhost:3001/api/turmas/${editandoId}`,
+            `https://sistema-academico-sesi-production.up.railway.app/api/turmas/${editandoId}`,
             novaTurma
         );
 

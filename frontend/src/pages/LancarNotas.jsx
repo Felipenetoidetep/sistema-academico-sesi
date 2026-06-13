@@ -31,7 +31,7 @@ const carregarTurmas = async () => {
 
         const response =
             await axios.get(
-                "http://localhost:3001/api/turmas"
+                "https://sistema-academico-sesi-production.up.railway.app/api/turmas"
             );
 
         setTurmas(response.data);
@@ -53,7 +53,7 @@ const carregarDisciplinas = async () => {
 
         const response =
             await axios.get(
-                "http://localhost:3001/api/disciplinas"
+                "https://sistema-academico-sesi-production.up.railway.app/api/disciplinas"
             );
 
         setDisciplinas(response.data);
@@ -84,7 +84,7 @@ const carregarAlunos = async () => {
 
         const alunosResponse =
             await axios.get(
-                `http://localhost:3001/api/alunos/turma/${turmaId}`
+                `https://sistema-academico-sesi-production.up.railway.app/api/alunos/turma/${turmaId}`
             );
 
         setAlunos(alunosResponse.data);
@@ -93,7 +93,7 @@ const carregarAlunos = async () => {
 
             const notasResponse =
                 await axios.get(
-                    `http://localhost:3001/api/notas/disciplina/${disciplinaId}`
+                    `https://sistema-academico-sesi-production.up.railway.app/api/notas/disciplina/${disciplinaId}`
                 );
 
             setNotasExistentes(
@@ -161,7 +161,7 @@ const salvarNotas = async () => {
             }));
 
         await axios.post(
-    "http://localhost:3001/api/notas/lancar",
+    "https://sistema-academico-sesi-production.up.railway.app/api/notas/lancar",
     {
         disciplina_id: disciplinaId,
         unidade,
@@ -220,7 +220,7 @@ const salvarAluno = async (alunoId) => {
         }
 
         await axios.post(
-            "http://localhost:3001/api/notas",
+            "https://sistema-academico-sesi-production.up.railway.app/api/notas",
             {
                 aluno_id: alunoId,
                 disciplina_id: disciplinaId,

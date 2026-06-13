@@ -8,7 +8,7 @@ function Professores() {
     useEffect(() => {
 
         axios
-            .get("http://localhost:3001/api/professores")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/professores")
             .then((response) => {
 
                 setProfessores(response.data);

@@ -27,7 +27,7 @@ function EditarAluno() {
 
             const response =
                 await axios.get(
-                    `http://localhost:3001/api/alunos/${id}`
+                    `https://sistema-academico-sesi-production.up.railway.app/api/alunos/${id}`
                 );
 
             setMatricula(
@@ -56,7 +56,7 @@ function EditarAluno() {
 
             const response =
                 await axios.get(
-                    "http://localhost:3001/api/turmas"
+                    "https://sistema-academico-sesi-production.up.railway.app/api/turmas"
                 );
 
             setTurmas(
@@ -78,7 +78,7 @@ function EditarAluno() {
         try {
 
             await axios.put(
-                `http://localhost:3001/api/alunos/${id}`,
+                `https://sistema-academico-sesi-production.up.railway.app/api/alunos/${id}`,
                 {
                     matricula,
                     nome,

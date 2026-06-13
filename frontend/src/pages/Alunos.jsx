@@ -11,7 +11,7 @@ function Alunos() {
     const carregarAlunos = () => {
 
         axios
-            .get("http://localhost:3001/api/alunos")
+            .get("http:///api/alunos")
             .then((response) => {
 
                 setAlunos(response.data);
@@ -30,7 +30,7 @@ function Alunos() {
     carregarAlunos();
 
     axios
-        .get("http://localhost:3001/api/turmas")
+        .get("https://sistema-academico-sesi-production.up.railway.app/api/turmas")
         .then((response) => {
 
             setTurmas(response.data);
@@ -61,7 +61,7 @@ function Alunos() {
         try {
 
             await axios.delete(
-                `http://localhost:3001/api/alunos/${id}`
+                `https://sistema-academico-sesi-production.up.railway.app/api/alunos/${id}`
             );
 
             alert("Aluno excluído com sucesso!");

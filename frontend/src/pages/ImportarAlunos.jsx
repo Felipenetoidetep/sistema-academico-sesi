@@ -25,7 +25,7 @@ function ImportarAlunos() {
 
             const response =
                 await axios.post(
-                    "http://localhost:3001/api/importar-alunos",
+                    "https://sistema-academico-sesi-production.up.railway.app/api/importar-alunos",
                     formData,
                     {
                         headers: {

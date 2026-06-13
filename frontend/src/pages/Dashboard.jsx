@@ -22,7 +22,7 @@ function Dashboard() {
     useEffect(() => {
 
         axios
-            .get("http://localhost:3001/api/dashboard")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/dashboard")
             .then((response) => {
 
                 setDados(response.data);

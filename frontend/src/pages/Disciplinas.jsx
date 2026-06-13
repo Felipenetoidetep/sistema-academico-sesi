@@ -23,7 +23,7 @@ function Disciplinas() {
     const carregarDisciplinas = () => {
 
         axios
-            .get("http://localhost:3001/api/disciplinas")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/disciplinas")
             .then((response) => {
 
                 setDisciplinas(response.data);
@@ -40,7 +40,7 @@ function Disciplinas() {
     const carregarTurmas = () => {
 
         axios
-            .get("http://localhost:3001/api/turmas")
+            .get("https://sistema-academico-sesi-production.up.railway.app/api/turmas")
             .then((response) => {
 
                 setTurmas(response.data);
@@ -59,7 +59,7 @@ function Disciplinas() {
         try {
 
             await axios.post(
-                "http://localhost:3001/api/disciplinas",
+                "https://sistema-academico-sesi-production.up.railway.app/api/disciplinas",
                 novaDisciplina
             );
 
