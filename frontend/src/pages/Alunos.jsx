@@ -10,20 +10,20 @@ function Alunos() {
 
     const carregarAlunos = () => {
 
-        axios
-            .get("http:///api/alunos")
-            .then((response) => {
+    axios
+        .get("https://sistema-academico-sesi-production.up.railway.app/api/alunos")
+        .then((response) => {
 
-                setAlunos(response.data);
+            setAlunos(response.data);
 
-            })
-            .catch((error) => {
+        })
+        .catch((error) => {
 
-                console.error(error);
+            console.error(error);
 
-            });
+        });
 
-    };
+};
 
     useEffect(() => {
 
