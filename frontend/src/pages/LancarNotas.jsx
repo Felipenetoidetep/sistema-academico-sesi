@@ -100,20 +100,19 @@ const carregarAlunos = async () => {
                 notasResponse.data
             );
 
-            const campo =
-                `${unidade}_${avaliacao}`;
-
             const notasCarregadas = {};
 
-            notasResponse.data.forEach(
-                (nota) => {
+notasResponse.data.forEach((nota) => {
 
-                    notasCarregadas[
-                        nota.aluno_id
-                    ] = nota[campo] || "";
+    notasCarregadas[nota.aluno_id] = {
 
-                }
-            );
+        av1: nota[`${unidade}_av1`] || "",
+        av2: nota[`${unidade}_av2`] || "",
+        av3: nota[`${unidade}_av3`] || ""
+
+    };
+
+});
 
             setNotas(
                 notasCarregadas
