@@ -219,31 +219,32 @@ const salvarAluno = async (alunoId) => {
         }
 
         await axios.post(
-            "https://sistema-academico-sesi-production.up.railway.app/api/notas",
-            {
-                aluno_id: alunoId,
-                disciplina_id: disciplinaId,
+    "https://sistema-academico-sesi-production.up.railway.app/api/notas",
+    {
+        aluno_id: alunoId,
+        disciplina_id: disciplinaId,
 
-                u1_av1:
-                    notas[alunoId]?.av1 || null,
+        [`${unidade}_av1`]:
+            notas[alunoId]?.av1 || null,
 
-                u1_av2:
-                    notas[alunoId]?.av2 || null,
+        [`${unidade}_av2`]:
+            notas[alunoId]?.av2 || null,
 
-                u1_av3:
-                    notas[alunoId]?.av3 || null,
+        [`${unidade}_av3`]:
+            notas[alunoId]?.av3 || null,
 
-                u1_media: media,
+        [`${unidade}_media`]:
+            media,
 
-                u1_recuperacao:
-                    recuperacao,
+        [`${unidade}_recuperacao`]:
+            recuperacao,
 
-                u1_media_final:
-                    notaFinal,
+        [`${unidade}_media_final`]:
+            notaFinal,
 
-                situacao
-            }
-        );
+        situacao
+    }
+);
 
         alert(
             "Aluno salvo com sucesso!"
