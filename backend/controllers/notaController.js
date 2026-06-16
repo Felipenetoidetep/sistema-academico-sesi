@@ -80,7 +80,7 @@ try {
 };
 
 exports.criar = async (req, res) => {
-
+ console.log("BODY RECEBIDO:", req.body);
     try {
 
         const {
