@@ -150,6 +150,8 @@ exports.criar = async (req, res) => {
         const placeholders =
             colunas.map(() => "?").join(", ");
 
+        console.log(req.body);
+        
         await pool.execute(
             `
             INSERT INTO notas
