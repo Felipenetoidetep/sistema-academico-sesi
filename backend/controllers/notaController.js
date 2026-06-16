@@ -86,20 +86,9 @@ exports.criar = async (req, res) => {
         const {
             aluno_id,
             disciplina_id,
-            u1_av1,
-            u1_av2,
-            u1_av3,
-            u1_recuperacao,
-            u1_media_final,
-            situacao
+            situacao,
+            ...dados
         } = req.body;
-
-        const u1_media =
-            (
-                Number(u1_av1 || 0) +
-                Number(u1_av2 || 0) +
-                Number(u1_av3 || 0)
-            ) / 3;
 
         const [registro] = await pool.execute(
             `
@@ -114,29 +103,24 @@ exports.criar = async (req, res) => {
             ]
         );
 
+        const campos = Object.keys(dados);
+
         if (registro.length > 0) {
+
+            const setClause =
+                campos.map(campo => `${campo} = ?`).join(", ");
 
             await pool.execute(
                 `
                 UPDATE notas
                 SET
-                    u1_av1 = ?,
-                    u1_av2 = ?,
-                    u1_av3 = ?,
-                    u1_media = ?,
-                    u1_recuperacao = ?,
-                    u1_media_final = ?,
+                    ${setClause},
                     situacao = ?
                 WHERE aluno_id = ?
                 AND disciplina_id = ?
                 `,
                 [
-                    u1_av1,
-                    u1_av2,
-                    u1_av3,
-                    u1_media,
-                    u1_recuperacao,
-                    u1_media_final,
+                    ...campos.map(campo => dados[campo]),
                     situacao,
                     aluno_id,
                     disciplina_id
@@ -149,34 +133,31 @@ exports.criar = async (req, res) => {
 
         }
 
+        const colunas = [
+            "aluno_id",
+            "disciplina_id",
+            ...campos,
+            "situacao"
+        ];
+
+        const valores = [
+            aluno_id,
+            disciplina_id,
+            ...campos.map(campo => dados[campo]),
+            situacao
+        ];
+
+        const placeholders =
+            colunas.map(() => "?").join(", ");
+
         await pool.execute(
             `
             INSERT INTO notas
-            (
-                aluno_id,
-                disciplina_id,
-                u1_av1,
-                u1_av2,
-                u1_av3,
-                u1_media,
-                u1_recuperacao,
-                u1_media_final,
-                situacao
-            )
+            (${colunas.join(", ")})
             VALUES
-            (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            (${placeholders})
             `,
-            [
-                aluno_id,
-                disciplina_id,
-                u1_av1,
-                u1_av2,
-                u1_av3,
-                u1_media,
-                u1_recuperacao,
-                u1_media_final,
-                situacao
-            ]
+            valores
         );
 
         return res.status(201).json({
